@@ -1,0 +1,33 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Gt Web API",
+        "title": "Gt API",
+        "contact": {},
+        "version": "0.0.1"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {
+        "/ping": {
+            "get": {
+                "description": "Endpoint to check for a basic response",
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    "Ping"
+                ],
+                "summary": "Basic health check",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

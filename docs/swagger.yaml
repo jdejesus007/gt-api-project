@@ -1,0 +1,22 @@
+basePath: /
+host: localhost:3000
+info:
+  contact: {}
+  description: Gt Web API
+  title: Gt API
+  version: 0.0.1
+paths:
+  /ping:
+    get:
+      description: Endpoint to check for a basic response
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Basic health check
+      tags:
+      - Ping
+swagger: "2.0"
