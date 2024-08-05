@@ -9,6 +9,89 @@
     "host": "localhost:3000",
     "basePath": "/",
     "paths": {
+        "/customers": {
+            "post": {
+                "description": "Endpoint to post customer creation",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Create customer",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Customer"
+                        }
+                    }
+                }
+            }
+        },
+        "/customers/{customerUUID}": {
+            "get": {
+                "description": "Endpoint to retrieve customer record",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Show sole customer by id or email",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Customer"
+                        }
+                    }
+                }
+            }
+        },
+        "/customers/{customerUUID}/orders": {
+            "get": {
+                "description": "Endpoint to retrieve customer record",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Retrieve all orders for particular customer",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Order"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/customers/{customerUUID}/orders/{orderUUID}": {
+            "get": {
+                "description": "Endpoint to retrieve order record",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Retrieve order details",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Order"
+                        }
+                    }
+                }
+            }
+        },
         "/ping": {
             "get": {
                 "description": "Endpoint to check for a basic response",
@@ -26,6 +109,61 @@
                             "type": "string"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.BaseStatusEnum": {
+            "type": "integer",
+            "enum": [
+                0
+            ],
+            "x-enum-varnames": [
+                "_"
+            ]
+        },
+        "models.Customer": {
+            "type": "object",
+            "properties": {
+                "UUID": {
+                    "type": "string"
+                },
+                "base_status": {
+                    "default": 0,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/models.BaseStatusEnum"
+                        }
+                    ]
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Order": {
+            "type": "object",
+            "properties": {
+                "UUID": {
+                    "type": "string"
+                },
+                "base_status": {
+                    "default": 0,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/models.BaseStatusEnum"
+                        }
+                    ]
+                },
+                "size:255;": {
+                    "type": "string"
                 }
             }
         }

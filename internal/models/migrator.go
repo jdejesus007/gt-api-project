@@ -9,6 +9,8 @@ import (
 func AutoMigrate(DBExecutor db.DBExecutor) {
 	ifaces := []interface{}{
 		&Book{},
+		&Customer{},
+		&Order{},
 	}
 
 	DBExecutor.GetConn().Debug().AutoMigrate(ifaces...)

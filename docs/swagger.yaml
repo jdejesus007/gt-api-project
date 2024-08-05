@@ -1,4 +1,37 @@
 basePath: /
+definitions:
+  models.BaseStatusEnum:
+    enum:
+    - 0
+    type: integer
+    x-enum-varnames:
+    - _
+  models.Customer:
+    properties:
+      UUID:
+        type: string
+      base_status:
+        allOf:
+        - $ref: '#/definitions/models.BaseStatusEnum'
+        default: 0
+      email:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+    type: object
+  models.Order:
+    properties:
+      UUID:
+        type: string
+      base_status:
+        allOf:
+        - $ref: '#/definitions/models.BaseStatusEnum'
+        default: 0
+      size:255;:
+        type: string
+    type: object
 host: localhost:3000
 info:
   contact: {}
@@ -6,6 +39,60 @@ info:
   title: Gt API
   version: 0.0.1
 paths:
+  /customers:
+    post:
+      description: Endpoint to post customer creation
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Create customer
+      tags:
+      - Customer
+  /customers/{customerUUID}:
+    get:
+      description: Endpoint to retrieve customer record
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+      summary: Show sole customer by id or email
+      tags:
+      - Customer
+  /customers/{customerUUID}/orders:
+    get:
+      description: Endpoint to retrieve customer record
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Order'
+            type: array
+      summary: Retrieve all orders for particular customer
+      tags:
+      - Customer
+  /customers/{customerUUID}/orders/{orderUUID}:
+    get:
+      description: Endpoint to retrieve order record
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Order'
+      summary: Retrieve order details
+      tags:
+      - Order
   /ping:
     get:
       description: Endpoint to check for a basic response
