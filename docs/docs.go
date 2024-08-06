@@ -172,28 +172,11 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "models.BaseStatusEnum": {
-            "type": "integer",
-            "enum": [
-                0
-            ],
-            "x-enum-varnames": [
-                "_"
-            ]
-        },
         "models.Book": {
             "type": "object",
             "properties": {
                 "UUID": {
                     "type": "string"
-                },
-                "base_status": {
-                    "default": 0,
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/models.BaseStatusEnum"
-                        }
-                    ]
                 },
                 "name": {
                     "type": "string"
@@ -205,14 +188,6 @@ const docTemplate = `{
             "properties": {
                 "UUID": {
                     "type": "string"
-                },
-                "base_status": {
-                    "default": 0,
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/models.BaseStatusEnum"
-                        }
-                    ]
                 },
                 "email": {
                     "type": "string"
@@ -230,14 +205,6 @@ const docTemplate = `{
             "properties": {
                 "UUID": {
                     "type": "string"
-                },
-                "base_status": {
-                    "default": 0,
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/models.BaseStatusEnum"
-                        }
-                    ]
                 },
                 "size:255;": {
                     "type": "string"

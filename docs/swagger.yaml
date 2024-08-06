@@ -1,19 +1,9 @@
 basePath: /
 definitions:
-  models.BaseStatusEnum:
-    enum:
-    - 0
-    type: integer
-    x-enum-varnames:
-    - _
   models.Book:
     properties:
       UUID:
         type: string
-      base_status:
-        allOf:
-        - $ref: '#/definitions/models.BaseStatusEnum'
-        default: 0
       name:
         type: string
     type: object
@@ -21,10 +11,6 @@ definitions:
     properties:
       UUID:
         type: string
-      base_status:
-        allOf:
-        - $ref: '#/definitions/models.BaseStatusEnum'
-        default: 0
       email:
         type: string
       firstName:
@@ -36,10 +22,6 @@ definitions:
     properties:
       UUID:
         type: string
-      base_status:
-        allOf:
-        - $ref: '#/definitions/models.BaseStatusEnum'
-        default: 0
       size:255;:
         type: string
     type: object
