@@ -6,12 +6,16 @@ definitions:
         type: string
       author:
         type: string
+      createdAt:
+        type: string
       name:
         type: string
     type: object
   models.Customer:
     properties:
       UUID:
+        type: string
+      createdAt:
         type: string
       email:
         type: string
@@ -28,6 +32,8 @@ definitions:
         items:
           type: string
         type: array
+      createdAt:
+        type: string
       customerUUID:
         type: string
     type: object
@@ -144,6 +150,8 @@ paths:
             items:
               $ref: '#/definitions/models.Order'
             type: array
+        "422":
+          description: Unprocessable Entity
       summary: Retrieve all orders / order history for particular customer
       tags:
       - Customer

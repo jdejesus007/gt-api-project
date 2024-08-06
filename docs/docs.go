@@ -178,6 +178,9 @@ const docTemplate = `{
                                 "$ref": "#/definitions/models.Order"
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
                     }
                 }
             }
@@ -233,6 +236,9 @@ const docTemplate = `{
                 "author": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 }
@@ -242,6 +248,9 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "UUID": {
+                    "type": "string"
+                },
+                "createdAt": {
                     "type": "string"
                 },
                 "email": {
@@ -266,6 +275,9 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
+                },
+                "createdAt": {
+                    "type": "string"
                 },
                 "customerUUID": {
                     "type": "string"

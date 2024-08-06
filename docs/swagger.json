@@ -172,6 +172,9 @@
                                 "$ref": "#/definitions/models.Order"
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
                     }
                 }
             }
@@ -227,6 +230,9 @@
                 "author": {
                     "type": "string"
                 },
+                "createdAt": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 }
@@ -236,6 +242,9 @@
             "type": "object",
             "properties": {
                 "UUID": {
+                    "type": "string"
+                },
+                "createdAt": {
                     "type": "string"
                 },
                 "email": {
@@ -260,6 +269,9 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "createdAt": {
+                    "type": "string"
                 },
                 "customerUUID": {
                     "type": "string"
