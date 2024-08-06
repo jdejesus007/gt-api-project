@@ -9,12 +9,6 @@ import (
 	"github.com/jdejesus007/gt-api-project/internal/models"
 )
 
-type BookService struct{}
-
-func (b *BookService) RegisterRoutes(r *gin.Engine) {
-	r.GET("/books", getAllBooks)
-}
-
 // Book Service godoc
 // @Summary Retrieve entire books inventory
 // @Schemes

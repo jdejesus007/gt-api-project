@@ -34,6 +34,32 @@ const docTemplate = `{
                                 "$ref": "#/definitions/models.Book"
                             }
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/checkout": {
+            "post": {
+                "description": "Endpoint to check out customer",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Checkout"
+                ],
+                "summary": "checkout the customer with list of books",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Order"
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
                     }
                 }
             }
@@ -83,6 +109,12 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/models.Customer"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
                     }
                 }
             }

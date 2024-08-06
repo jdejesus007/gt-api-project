@@ -28,10 +28,11 @@ type customerPayload struct {
 // @Param lastName body string true "Last Name"
 // @Param email body string true "Email"
 // @Success 201 {object} models.Customer
+// @Failure 422
+// @Failure 400
 // @Router /customers [post]
 func customerCreate(c *gin.Context) {
 	payload := new(customerPayload)
-	log.Println("incoming -> ", c)
 	if err := c.ShouldBindJSON(payload); err != nil {
 		c.AbortWithStatusJSON(http.StatusBadRequest, map[string]string{
 			"error": err.Error(),

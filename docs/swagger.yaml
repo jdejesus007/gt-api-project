@@ -46,9 +46,26 @@ paths:
             items:
               $ref: '#/definitions/models.Book'
             type: array
+        "404":
+          description: Not Found
       summary: Retrieve entire books inventory
       tags:
       - Book
+  /checkout:
+    post:
+      description: Endpoint to check out customer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Order'
+        "422":
+          description: Unprocessable Entity
+      summary: checkout the customer with list of books
+      tags:
+      - Checkout
   /customers:
     post:
       description: Endpoint to post customer creation
@@ -78,6 +95,10 @@ paths:
           description: Created
           schema:
             $ref: '#/definitions/models.Customer'
+        "400":
+          description: Bad Request
+        "422":
+          description: Unprocessable Entity
       summary: Create customer
       tags:
       - Customer
