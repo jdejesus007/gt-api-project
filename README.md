@@ -17,3 +17,12 @@ local: http://localhost:3000/docs/index.html
   3. CREATE ROLE root WITH LOGIN SUPERUSER PASSWORD 'example';
   4. \l show all dbs
   5. CREATE DATABASE gt;
+
+
+## Run api
+make dev
+make run-dev
+
+## Run Tests
+make dev
+make run-tests
