@@ -13,3 +13,6 @@ dev:
 run-dev:
 	swag init -g cmd/api/main.go
 	go run cmd/api/main.go
+
+run-tests:
+	go test -v ./...

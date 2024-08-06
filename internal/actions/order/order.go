@@ -15,8 +15,11 @@ type customerURIPayload struct {
 }
 
 type orderHistoryResp struct {
-	Orders []*models.Order `json:"orders"`
-	Books  []*models.Book  `json:"books"`
+	Orders    []*models.Order `json:"orders"`
+	Books     []*models.Book  `json:"books"`
+	Email     string          `json:"email"`
+	FirstName string          `json:"firstName"`
+	LastName  string          `json:"lastName"`
 }
 
 // Order Service godoc
@@ -73,8 +76,6 @@ func customerOrderIndex(c *gin.Context) {
 			uuids = append(uuids, id)
 		}
 	}
-	// Pass back actual books associated to orders
-	log.Println("gfgggg", uuids)
 
 	var books []*models.Book
 	if result := repositories.Database().GetConn().Table("books").
@@ -93,8 +94,11 @@ func customerOrderIndex(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, orderHistoryResp{
-		Books:  books,
-		Orders: orders,
+		Books:     books,
+		Orders:    orders,
+		Email:     customer.Email,
+		FirstName: customer.FirstName,
+		LastName:  customer.LastName,
 	})
 }
 
@@ -107,5 +111,5 @@ func customerOrderIndex(c *gin.Context) {
 // @Success 200 {object} models.Order
 // @Router /customers/{customerUUID}/orders/{orderUUID} [get]
 func customerOrderDetails(c *gin.Context) {
-	log.Println("TODO - retrieve sole order details for this particular customer")
+	log.Println("TODO - optional - retrieve sole order details for this particular customer")
 }

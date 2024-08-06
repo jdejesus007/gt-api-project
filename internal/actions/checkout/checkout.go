@@ -1,7 +1,6 @@
 package checkout
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -30,7 +29,6 @@ type checkoutPayload struct {
 func checkout(c *gin.Context) {
 	// Customer account must be created prior to checkout
 	// Ensure customer already exists to checkout
-	log.Println("TODO - check out customer with list of books")
 
 	payload := new(checkoutPayload)
 	if err := c.ShouldBindJSON(payload); err != nil {

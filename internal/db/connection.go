@@ -17,6 +17,14 @@ type GtDB struct {
 	connection *gorm.DB
 }
 
+// NewGtDB creates a new gt database connection
+func NewGtDB(connection *gorm.DB) *GtDB {
+	database := &GtDB{
+		connection: connection,
+	}
+	return database
+}
+
 func (dbImpl *GtDB) GetConn() *gorm.DB {
 	// If connection already exists, use it
 	if dbImpl.connection != nil {
