@@ -178,6 +178,9 @@ const docTemplate = `{
                 "UUID": {
                     "type": "string"
                 },
+                "author": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 }
