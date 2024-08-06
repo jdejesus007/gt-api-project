@@ -68,6 +68,25 @@ paths:
   /customers:
     post:
       description: Endpoint to post customer creation
+      parameters:
+      - description: First Name
+        in: body
+        name: firstName
+        required: true
+        schema:
+          type: string
+      - description: Last Name
+        in: body
+        name: lastName
+        required: true
+        schema:
+          type: string
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
       produces:
       - application/json
       responses:

@@ -11,6 +11,7 @@ import (
 	"github.com/jdejesus007/gt-api-project/internal/config"
 	"github.com/jdejesus007/gt-api-project/internal/constants"
 	"github.com/jdejesus007/gt-api-project/internal/db"
+	"github.com/jdejesus007/gt-api-project/internal/models"
 	"github.com/jdejesus007/gt-api-project/internal/routes"
 )
 
@@ -59,8 +60,8 @@ func (apiImpl *Implementation) Repositories() provider.RepositoryProvider {
 
 func (apiImpl *Implementation) CreateServer() *gin.Engine {
 	// Run gorm auto migrations and seed test data
-	// models.AutoMigrate(apiImpl.Repositories().Database())
-	// models.AutoSeed(apiImpl.Repositories().Database())
+	models.AutoMigrate(apiImpl.Repositories().Database())
+	models.AutoSeed(apiImpl.Repositories().Database())
 
 	r := gin.Default()
 

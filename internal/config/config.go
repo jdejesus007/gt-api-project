@@ -22,12 +22,12 @@ type configSchema struct {
 	Port string `required:"true"`
 
 	// Database Config (Postgres)
-	DatabaseDSN      string
-	DatabaseHost     string
-	DatabasePort     string
-	DatabaseUser     string
-	DatabasePassword string
-	DatabaseName     string
+	DatabaseDSN      string `required:"true"`
+	DatabaseHost     string `required:"true"`
+	DatabasePort     string `required:"true"`
+	DatabaseUser     string `required:"true"`
+	DatabasePassword string `required:"true"`
+	DatabaseName     string `required:"true"`
 }
 
 var GtConfig *configSchema

@@ -48,6 +48,35 @@ const docTemplate = `{
                     "Customer"
                 ],
                 "summary": "Create customer",
+                "parameters": [
+                    {
+                        "description": "First Name",
+                        "name": "firstName",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Last Name",
+                        "name": "lastName",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Email",
+                        "name": "email",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
