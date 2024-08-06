@@ -24,7 +24,11 @@ definitions:
     properties:
       UUID:
         type: string
-      size:255;:
+      bookUUIDs:
+        items:
+          type: string
+        type: array
+      customerUUID:
         type: string
     type: object
 host: localhost:3000
@@ -54,6 +58,19 @@ paths:
   /checkout:
     post:
       description: Endpoint to check out customer
+      parameters:
+      - description: List of Books to Create Order With
+        in: body
+        name: books
+        required: true
+        schema:
+          type: array
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
       produces:
       - application/json
       responses:

@@ -51,6 +51,26 @@ const docTemplate = `{
                     "Checkout"
                 ],
                 "summary": "checkout the customer with list of books",
+                "parameters": [
+                    {
+                        "description": "List of Books to Create Order With",
+                        "name": "books",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Email",
+                        "name": "email",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
@@ -241,7 +261,13 @@ const docTemplate = `{
                 "UUID": {
                     "type": "string"
                 },
-                "size:255;": {
+                "bookUUIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "customerUUID": {
                     "type": "string"
                 }
             }

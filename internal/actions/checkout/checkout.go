@@ -104,7 +104,6 @@ func checkout(c *gin.Context) {
 	}
 
 	// Able to checkout
-	// Create order and return obj
 	order := models.Order{
 		UUID:         uuid.New().String(),
 		CustomerUUID: customer.UUID,
