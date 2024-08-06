@@ -15,6 +15,29 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/books": {
+            "get": {
+                "description": "Endpoint to retrieve all books",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Retrieve entire books inventory",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Book"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/customers": {
             "post": {
                 "description": "Endpoint to post customer creation",
@@ -64,7 +87,7 @@ const docTemplate = `{
                 "tags": [
                     "Customer"
                 ],
-                "summary": "Retrieve all orders for particular customer",
+                "summary": "Retrieve all orders / order history for particular customer",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -128,6 +151,25 @@ const docTemplate = `{
             "x-enum-varnames": [
                 "_"
             ]
+        },
+        "models.Book": {
+            "type": "object",
+            "properties": {
+                "UUID": {
+                    "type": "string"
+                },
+                "base_status": {
+                    "default": 0,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/models.BaseStatusEnum"
+                        }
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
         },
         "models.Customer": {
             "type": "object",

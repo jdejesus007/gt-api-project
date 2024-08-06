@@ -16,7 +16,7 @@ func (o *OrderService) RegisterRoutes(r *gin.Engine) {
 }
 
 // Order Service godoc
-// @Summary Retrieve all orders for particular customer
+// @Summary Retrieve all orders / order history for particular customer
 // @Schemes
 // @Description Endpoint to retrieve customer record
 // @Tags Customer

@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 	internal "github.com/jdejesus007/gt-api-project/internal/actions"
+	"github.com/jdejesus007/gt-api-project/internal/actions/book"
 	"github.com/jdejesus007/gt-api-project/internal/actions/checkout"
 	"github.com/jdejesus007/gt-api-project/internal/actions/customer"
 	"github.com/jdejesus007/gt-api-project/internal/actions/order"
@@ -26,6 +27,7 @@ func Register(ginRouter *gin.Engine) {
 
 		// Business routes
 		&customer.CustomerService{},
+		&book.BookService{},
 		&order.OrderService{},
 		&checkout.CheckoutService{},
 	}

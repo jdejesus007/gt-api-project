@@ -24,7 +24,7 @@ func (c *CustomerService) RegisterRoutes(r *gin.Engine) {
 // @Success 200 {object} models.Customer
 // @Router /customers/{customerUUID} [get]
 func customerShow(c *gin.Context) {
-
+	log.Println("TODO - show sole customer")
 }
 
 // Customer Service godoc

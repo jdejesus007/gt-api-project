@@ -6,6 +6,17 @@ definitions:
     type: integer
     x-enum-varnames:
     - _
+  models.Book:
+    properties:
+      UUID:
+        type: string
+      base_status:
+        allOf:
+        - $ref: '#/definitions/models.BaseStatusEnum'
+        default: 0
+      name:
+        type: string
+    type: object
   models.Customer:
     properties:
       UUID:
@@ -39,6 +50,21 @@ info:
   title: Gt API
   version: 0.0.1
 paths:
+  /books:
+    get:
+      description: Endpoint to retrieve all books
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Book'
+            type: array
+      summary: Retrieve entire books inventory
+      tags:
+      - Book
   /customers:
     post:
       description: Endpoint to post customer creation
@@ -77,7 +103,7 @@ paths:
             items:
               $ref: '#/definitions/models.Order'
             type: array
-      summary: Retrieve all orders for particular customer
+      summary: Retrieve all orders / order history for particular customer
       tags:
       - Customer
   /customers/{customerUUID}/orders/{orderUUID}:

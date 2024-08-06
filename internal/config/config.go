@@ -21,7 +21,7 @@ type configSchema struct {
 	// Server configs
 	Port string `required:"true"`
 
-	// Database Configs (Postgres)
+	// Database Config (Postgres)
 	DatabaseDSN      string
 	DatabaseHost     string
 	DatabasePort     string
